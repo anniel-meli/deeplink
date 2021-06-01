@@ -11,7 +11,7 @@ export default function Home() {
   const [callback, setCallback] = React.useState('https://www.google.com.br')
 
   const openDeeplink = () => {
-    const deeplink = `${baseUrl}${encodeURIComponent(`${url}?price=${price}&title=${title}&source=${source}&serial_number=${serial}&callback_url=${callback}`)}?hides_bottom_bar=true`;
+    const deeplink = `${baseUrl}${encodeURIComponent(`${url}?price=${price}&title=${title}&source=${source}&serial_number=${serial}&callback_url=${callback}`)}&hides_bottom_bar=true`;
     window.location = deeplink;
   }
 
