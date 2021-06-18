@@ -8,7 +8,7 @@ export default function Home() {
   const [title, setTitle] = React.useState('Camisa')
   const [source, setSource] = React.useState('point')
   const [serial, setSerial] = React.useState('0000000')
-  const [callback, setCallback] = React.useState('https://deeplink-one.vercel.app/congrats')
+  const [callback, setCallback] = React.useState('mercadopago://webview/?url=https://www.omega.mercadopago.com.br/tools/list')
 
   const openDeeplink = () => {
     const deeplink = `${baseUrl}${encodeURIComponent(`${url}?price=${price}&title=${title}&source=${source}&serial_number=${serial}&callback_url=${callback}`)}&hides_bottom_bar=true`;
