@@ -15,7 +15,7 @@
   font-size: 18px;
 }
 
-.container > button {
+.container > a {
   height: 48px;
   width: 100%;
   font-size: 18px;
@@ -23,4 +23,7 @@
   border-color: #009ee3;
   background-color: #009ee3;
   color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -11,8 +11,12 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <h1>Link de pago + Quick Link</h1>
-      <button href={deeplinkOmega}>Link Omega</button>
-      <button href={deeplinkBeta}>Link Beta</button>
+      <a className="link" href={deeplinkOmega}>
+        Link Omega
+      </a>
+      <a className="link" href={deeplinkBeta}>
+        Link Beta
+      </a>
     </div>
   );
 }
