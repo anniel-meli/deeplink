@@ -6,7 +6,7 @@ export default function Home() {
   const [scope, setScope] = React.useState("beta");
   const [engine, setEngine] = React.useState("1");
   const deeplink = `mercadopago://webview/?webkit-engine=${engine}&url=${encodeURIComponent(
-    `https://${scope}.mercadopago.${site}/tools/${ ['com.mx','com.ar'].includes(site) ? 'create' : 'list'}`
+    `https://${scope}.mercadopago${ scope === 'dev' ? ':8443' : ''}.${site}/tools/${ ['com.mx','com.ar'].includes(site) ? 'create' : 'list'}`
   )}&hides_bottom_bar=true&${engine === '1' ? 'navigation_icon' :'bar_right_button_icon'}=boton-tulink&use_web_title=false`;
 
   console.log(deeplink);
@@ -28,6 +28,7 @@ export default function Home() {
       </select>
       <hr />
       <select onChange={(e) => setScope(e.target.value)}>
+       <option value="dev">Dev</option>
         <option value="beta">Beta</option>
         <option value="omega">Omega</option>
         <option value="alpha">Alpha</option>
