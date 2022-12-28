@@ -27,7 +27,7 @@ export default function Home() {
         <option value="com.pe">MPE</option>
       </select>
       <hr />
-      <select onChange={(e) => setScope(e.target.value)}>
+      <select value={scope} onChange={(e) => setScope(e.target.value)}>
        <option value="dev">Dev</option>
         <option value="beta">Beta</option>
         <option value="omega">Omega</option>
@@ -38,6 +38,15 @@ export default function Home() {
         <option value="1">Webkit 1</option>
         <option value="2">Webkit 2</option>
       </select>
+      <hr />
+      <select onChange={(e) => setEngine(e.target.value)}>
+        <option value="ML_APP_LIB">ML_APP_LIB</option>
+        <option value="ML_WEB_LIB">ML_WEB_LIB</option>
+        <option value="MP_APP_LIB">MP_APP_LIB</option>
+        <option value="MP_WEB_LIB">MP_WEB_LIB</option>
+      </select>
+      <a download href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Armadillo-Florida-3000x2175_4.4MB-2009.jpg/2048px-Armadillo-Florida-3000x2175_4.4MB-2009.jpg">
+        Baixei aqui</a>
     </div>
   );
 }
