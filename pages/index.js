@@ -33,6 +33,7 @@ export default function Home() {
         <option value="/tools/list">/tools/list</option>
         <option value="/editor">/editor</option>
         <option value="/onboarding">/onboarding</option>
+          <option value="/link-payments-list">/link-payments-list</option>
         <option value="/link-in-bio/bio/editor">/link-in-bio/bio/editor</option>
         <option value="/link-in-bio/bio/onboarding">/link-in-bio/bio/onboarding</option>
       </select>
