@@ -27,12 +27,14 @@ export default function Home() {
         <option value="MP">MP</option>
         <option value="ML">ML</option>
       </select>
+      <hr />
       <select value={path} onChange={(e) => setPath(e.target.value)}>
         <option value="/tools/create">/tools/create</option>
         <option value="/tools/list">/tools/list</option>
         <option value="/link-in-bio/bio/editor">/link-in-bio/bio/editor</option>
         <option value="/link-in-bio/bio/onboarding">/link-in-bio/bio/onboarding</option>
       </select>
+      <hr />
       <select value={site} onChange={(e) => setSite(e.target.value)}>
         <option value="com.br">MLB</option>
         <option value="com.ar">MLA</option>
