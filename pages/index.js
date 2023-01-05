@@ -9,10 +9,10 @@ export default function Home() {
   const [site, setSite] = React.useState("com.br");
   const [scope, setScope] = React.useState("beta");
   const [engine, setEngine] = React.useState("1");
-  const [platform, setPlatform] = React.useState("MP");
+  const [platform, setPlatform] = React.useState("mercadopago");
   const [path, setPath] = React.useState("/tools/create");
-  const deeplink = `mercadopago://webview/?webkit-engine=${engine}&url=${encodeURIComponent(
-    `https://${scope}.${platform === 'MP' ? 'mercadopago' : getMeliDomain(site)}${ scope === 'dev' ? ':8443' : ''}.${site}${path}`
+  const deeplink = `${platform}://webview/?webkit-engine=${engine}&url=${encodeURIComponent(
+    `https://${scope}.${platform === 'mercadopago' ? platform : getMeliDomain(site)}${ scope === 'dev' ? ':8443' : ''}.${site}${path}`
   )}&hides_bottom_bar=true&${engine === '1' ? 'navigation_icon' :'bar_right_button_icon'}=boton-tulink&use_web_title=false`;
 
   console.log(deeplink);
@@ -24,8 +24,8 @@ export default function Home() {
       </a>
       <hr />
       <select value={platform} onChange={(e) => setPlatform(e.target.value)}>
-        <option value="MP">MP</option>
-        <option value="ML">ML</option>
+        <option value="mercadopago">MP</option>
+        <option value="meli">ML</option>
       </select>
       <hr />
       <select value={path} onChange={(e) => setPath(e.target.value)}>
