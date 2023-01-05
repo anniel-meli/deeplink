@@ -12,7 +12,7 @@ export default function Home() {
   const [platform, setPlatform] = React.useState("mercadopago");
   const [path, setPath] = React.useState("/tools/create");
   const deeplink = `${platform}://webview/?webkit-engine=${engine}&hides_bottom_bar=true&use_web_title=false&url=${encodeURIComponent(
-    `https://${scope}.${platform === 'mercadopago' ? platform : getMeliDomain(site)}${ scope === 'dev' ? ':8443' : ''}.${site}${path}`
+    `https://${scope}.${platform === 'mercadopago' ? platform : getMeliDomain(site)}.${site}${ scope === 'dev' ? ':8443' : ''}${path}`
   )}`;
 
   console.log(deeplink);
