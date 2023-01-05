@@ -13,7 +13,7 @@ export default function Home() {
   const [path, setPath] = React.useState("/tools/create");
   const deeplink = `${platform}://webview/?webkit-engine=${engine}&url=${encodeURIComponent(
     `https://${scope}.${platform === 'mercadopago' ? platform : getMeliDomain(site)}${ scope === 'dev' ? ':8443' : ''}.${site}${path}`
-  )}&hides_bottom_bar=true&${engine === '1' ? 'navigation_icon' :'bar_right_button_icon'}=boton-tulink&use_web_title=false`;
+  )}&hides_bottom_bar=true&use_web_title=false`;
 
   console.log(deeplink);
 
