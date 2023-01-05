@@ -1,12 +1,18 @@
 import React from "react";
 import styles from "../styles/Home.module.css";
 
+function getMeliDomain(site) {
+  return site.includes('com.br') ? 'mercadolivre' : 'mercadolibre'
+}
+
 export default function Home() {
   const [site, setSite] = React.useState("com.br");
   const [scope, setScope] = React.useState("beta");
   const [engine, setEngine] = React.useState("1");
+  const [platform, setPlatform] = React.useState("MP");
+  const [path, setPath] = React.useState("/tools/create");
   const deeplink = `mercadopago://webview/?webkit-engine=${engine}&url=${encodeURIComponent(
-    `https://${scope}.mercadopago${ scope === 'dev' ? ':8443' : ''}.${site}/tools/${ ['com.mx','com.ar'].includes(site) ? 'create' : 'list'}`
+    `https://${scope}.${platform === 'MP' ? 'mercadopago' : getMeliDomain(site)}${ scope === 'dev' ? ':8443' : ''}.${site}${path}`
   )}&hides_bottom_bar=true&${engine === '1' ? 'navigation_icon' :'bar_right_button_icon'}=boton-tulink&use_web_title=false`;
 
   console.log(deeplink);
@@ -14,10 +20,20 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <a className="link" href={deeplink}>
-        Deeplink
+        Acessar Deeplink
       </a>
       <hr />
-      <select onChange={(e) => setSite(e.target.value)}>
+      <select value={platform} onChange={(e) => setPlatform(e.target.value)}>
+        <option value="MP">MP</option>
+        <option value="ML">ML</option>
+      </select>
+      <select value={path} onChange={(e) => setPath(e.target.value)}>
+        <option value="/tools/create">/tools/create</option>
+        <option value="/tools/list">/tools/list</option>
+        <option value="/link-in-bio/bio/editor">/link-in-bio/bio/editor</option>
+        <option value="/link-in-bio/bio/onboarding">/link-in-bio/bio/onboarding</option>
+      </select>
+      <select value={site} onChange={(e) => setSite(e.target.value)}>
         <option value="com.br">MLB</option>
         <option value="com.ar">MLA</option>
         <option value="com.mx">MLM</option>
@@ -34,19 +50,11 @@ export default function Home() {
         <option value="alpha">Alpha</option>
       </select>
       <hr />
-      <select onChange={(e) => setEngine(e.target.value)}>
+      <select value={engine} onChange={(e) => setEngine(e.target.value)}>
         <option value="1">Webkit 1</option>
         <option value="2">Webkit 2</option>
       </select>
       <hr />
-      <select onChange={(e) => setEngine(e.target.value)}>
-        <option value="ML_APP_LIB">ML_APP_LIB</option>
-        <option value="ML_WEB_LIB">ML_WEB_LIB</option>
-        <option value="MP_APP_LIB">MP_APP_LIB</option>
-        <option value="MP_WEB_LIB">MP_WEB_LIB</option>
-      </select>
-      <a download href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Armadillo-Florida-3000x2175_4.4MB-2009.jpg/2048px-Armadillo-Florida-3000x2175_4.4MB-2009.jpg">
-        Baixei aqui</a>
     </div>
   );
 }
